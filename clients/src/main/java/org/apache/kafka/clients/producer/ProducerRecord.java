@@ -57,7 +57,7 @@ public class ProducerRecord<K, V> {
      * @param key The key that will be included in the record
      * @param value The record contents
      */
-    protected ProducerRecord(String topic, Integer partition, Long timestamp, K key, V value) {
+    public ProducerRecord(String topic, Integer partition, Long timestamp, K key, V value) {
         if (topic == null)
             throw new IllegalArgumentException("Topic cannot be null.");
         if (timestamp != null && timestamp < 0)
@@ -80,7 +80,9 @@ public class ProducerRecord<K, V> {
      * @param partition The partition to which the record should be sent
      * @param key The key that will be included in the record
      * @param value The record contents
+     * @deprecated Use the ProducerRecordBuilder. This method will be made private in a future version
      */
+    @Deprecated
     public ProducerRecord(String topic, Integer partition, K key, V value) {
         this(topic, partition, null, key, value);
     }
@@ -91,7 +93,9 @@ public class ProducerRecord<K, V> {
      * @param topic The topic the record will be appended to
      * @param key The key that will be included in the record
      * @param value The record contents
+     * @deprecated Use the ProducerRecordBuilder. This method will be removed in a future version
      */
+    @Deprecated
     public ProducerRecord(String topic, K key, V value) {
         this(topic, null, null, key, value);
     }
@@ -101,7 +105,9 @@ public class ProducerRecord<K, V> {
      * 
      * @param topic The topic this record should be sent to
      * @param value The record contents
+     * @deprecated Use the ProducerRecordBuilder. This method will be removed in a future version
      */
+    @Deprecated
     public ProducerRecord(String topic, V value) {
         this(topic, null, null, null, value);
     }
