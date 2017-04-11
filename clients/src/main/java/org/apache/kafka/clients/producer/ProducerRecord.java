@@ -57,7 +57,7 @@ public class ProducerRecord<K, V> {
      * @param key The key that will be included in the record
      * @param value The record contents
      */
-    public ProducerRecord(String topic, Integer partition, Long timestamp, K key, V value) {
+    protected ProducerRecord(String topic, Integer partition, Long timestamp, K key, V value) {
         if (topic == null)
             throw new IllegalArgumentException("Topic cannot be null.");
         if (timestamp != null && timestamp < 0)
